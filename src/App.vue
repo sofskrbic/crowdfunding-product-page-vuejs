@@ -1,7 +1,10 @@
 <template>
   <div id="app">
     <Header @overlayActive="activateOverlay"/>
-    <SelectionModal v-show="selectionModal" @closeModal="toggleSuccessModal" />
+    <SelectionModal v-show="selectionModal" 
+      @closeModal="showSelectionModal" 
+      @openSuccess="toggleSuccessModal"
+     />
     <SuccessModal v-show="successModal" @closeModal="toggleSuccessModal" />
     <div :class="{dimmed: overlay}"></div>
     <Featured @showModal="showSelectionModal"/>
@@ -33,9 +36,6 @@ export default {
       overlay: false,
       selectionModal: false,
       successModal: false,
-      backed: 89914,
-      backers: 5007,
-      daysLeft: 56
     }
   },
   methods: {

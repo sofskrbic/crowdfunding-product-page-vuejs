@@ -5,7 +5,7 @@
       <p class="pledge">{{pledge}}</p>
     </div>
     <p>{{description}}</p>
-    <p class="quantity"><span>{{quantity}}</span> left</p>
+    <p class="quantity" v-show="quantity != null"><span>{{quantity}}</span> left</p>
     <button class="btn btn-teal"
       :disabled = "quantity == 0"
       @click="initializePledge"
@@ -31,7 +31,7 @@ export default {
     },
     quantity: {
       type: Number,
-      required: true
+      required: false
     }
   },
   methods: {
@@ -66,7 +66,7 @@ export default {
   }
 
   .quantity {
-    padding-block: 1rem;
+    padding-top: 1rem;
   }
 
   span {
@@ -84,5 +84,9 @@ export default {
   .pledge {
     color: var(--clr-primary);
     font-weight: var(--fw-medium);
+  }
+
+  .btn {
+    margin-top: 1.5rem;
   }
 </style>

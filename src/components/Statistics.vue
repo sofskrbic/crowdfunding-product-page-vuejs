@@ -1,14 +1,14 @@
 <template>
   <div class="container">
     <div class="split">
-      <p><span>$89,914</span> of $100,000 backed</p>
+      <p><span>{{moneyCollected}}</span> of $100,000 backed</p>
       <hr>
-      <p><span>5,007</span> total backers</p>
+      <p><span>{{totalBackers}}</span> total backers</p>
       <hr>
-      <p><span>56</span> days left</p>
+      <p><span>{{daysLeft}}</span> days left</p>
     </div>
     <div class="progress">
-      <div class="progress-bar"></div>
+      <div class="progress-bar" id="progress-bar" :style="{ 'width' : percentage + '%' }"></div>
     </div>
   </div>
 </template>
@@ -16,6 +16,32 @@
 <script>
 export default {
   name: 'Statistics',
+  data() {
+    return {
+      percentage: 0
+    }
+  },
+  created() {
+    var intval = setInterval(() => {
+      if(this.percentage < Math.round(this.$store.getters.getProjectDetails.backed / 1000))
+        this.percentage += 1.5
+      else
+        clearInterval(intval)
+    }, 10);
+  },
+  computed: {
+    moneyCollected() {
+      let money = "$" + this.$store.getters.getProjectDetails.backed + ""      
+      return money.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    },
+    totalBackers() {
+      let total = this.$store.getters.getProjectDetails.backers + ""      
+      return total.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    },
+    daysLeft() {
+      return this.$store.getters.getProjectDetails.daysLeft
+    }
+  }
 }
 </script>
 
@@ -67,7 +93,6 @@ export default {
     }
 
     .progress-bar {
-      width: 75%;
       height: 1rem;
       background-color: var(--clr-primary);
       border-radius: 50px;
