@@ -5,6 +5,8 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
+    selected: -1,
+    bookmarked: false,
     variants: [
       {
         id: 0,
@@ -46,8 +48,14 @@ const store = new Vuex.Store({
         variant.quantity --
       }
       state.project.backed = state.project.backed + parseInt(payload.pledgeAmount)
-      console.log(payload.pledgeAmount)
       state.project.backers++
+      state.selected = -1
+    },
+    updateSelectedVariant(state, payload) {
+      state.selected = payload.selected
+    },
+    bookmarked(state) {
+      state.bookmarked = !(state.bookmarked)
     }
   },
   actions: {},
@@ -58,6 +66,9 @@ const store = new Vuex.Store({
     },
     getProjectDetails() {
       return store.state.project
+    },
+    getSelectedVariant() {
+      return store.state.selected
     }
   }
 });

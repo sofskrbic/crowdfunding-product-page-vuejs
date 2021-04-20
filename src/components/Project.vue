@@ -12,7 +12,7 @@
       your computer to allow notepads, pens, and USB sticks to be stored under the stand.
     </p>
     <div class="split">
-      <Product />
+      <Product @openSuccessModal="openSelection"/>
     </div>
   </div>
 </template>
@@ -24,6 +24,11 @@ export default {
   name: 'Project',
   components : {
     Product,
+  },
+  methods: {
+    openSelection() {
+      this.$emit('openSelection')
+    }
   }
 }
 </script>

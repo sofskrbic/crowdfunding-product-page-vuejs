@@ -9,7 +9,7 @@
     <div :class="{dimmed: overlay}"></div>
     <Featured @showModal="showSelectionModal"/>
     <Statistics />
-    <Project />
+    <Project @openSelection="showSelectionModal" />
   </div>
 </template>
 

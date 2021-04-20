@@ -3,11 +3,13 @@
       <Variant
         v-for="variant in variants" :key="variant.id"
         v-show="variant.id != 0"
+        :id="variant.id"
         :title="variant.title"
         :pledge="variant.pledge"
         :description="variant.description"
         :quantity="variant.quantity"
         :class="{ outOfStock: variant.quantity == 0 }"
+        @initializePledge="openModal"
       />
   </div>
 </template>
@@ -23,6 +25,14 @@ export default {
   computed: {
     variants() {
       return this.$store.getters.getAllVariants
+    }
+  },
+  methods: {
+    openModal(variant) {
+      this.$emit('openSuccessModal')
+      this.$store.commit('updateSelectedVariant', {
+        selected: variant
+      })
     }
   }
 }

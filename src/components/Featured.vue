@@ -5,8 +5,8 @@
     <p>A beautifully handcrafted monitor stand to reduce neck and eye strain.</p>
     <div class="split">
       <button class="btn btn-teal" @click="$emit('showModal')">Back this project</button>
-      <button class="btn btn-icon">
-        <img src="../assets/icon-bookmark.svg" alt="Bookmark icon">
+      <button class="btn btn-icon" @click="bookmarkProject">
+        <img :src="imgSrc" alt="Bookmark icon" id="bookmark">
         <span>Bookmark</span>
       </button>
     </div>
@@ -16,7 +16,21 @@
 <script>
 export default {
   name: 'Featured',
-  
+  data() {
+    return {
+      imgSrc: require('@/assets/icon-bookmark.svg')
+    }
+  },
+  methods: {
+    bookmarkProject() {
+      this.$store.commit('bookmarked')
+      if (this.$store.state.bookmarked) {
+        this.imgSrc = require("@/assets/icon-bookmarked.svg")
+      }else {
+        this.imgSrc = require("@/assets/icon-bookmark.svg")
+      }
+    }
+  }
 }
 </script>
 
@@ -44,6 +58,10 @@ export default {
 
   h1 {
     font-size: var(--fs-h1);
+  }
+
+  .btn img::before {
+    content: '';
   }
 
   .split {

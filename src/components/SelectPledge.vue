@@ -28,6 +28,11 @@ export default {
       pledgeAmount: ''
     }
   },
+  computed: {
+    selected() {
+      return this.$store.getters.getSelectedVariant
+    }
+  },
   methods: {
     updateActiveVariant() {
       this.$emit('onUpdate', this.id)
@@ -59,8 +64,7 @@ export default {
     },
     quantity: {
       type: Number
-    },
-    selected: Number
+    }
   }
 
 }

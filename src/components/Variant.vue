@@ -17,6 +17,10 @@
 export default {
   name: 'Variant',
   props: {
+    id: {
+      type: Number,
+      required: true
+    },
     title: {
       type: String,
       required: true
@@ -36,7 +40,7 @@ export default {
   },
   methods: {
     initializePledge() {
-      this.$emit('finishPledge', this.id)
+      this.$emit('initializePledge', this.id)
     }
   }
 }

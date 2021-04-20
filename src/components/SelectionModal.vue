@@ -15,7 +15,6 @@
         :description="variant.description"
         :quantity="variant.quantity"
         :class="{ outOfStock: variant.quantity == 0 }"
-        :selected="selected"
         @onUpdate="updateActiveVariant"
         @finishPledge="finishPledgeAction"
       />
@@ -28,14 +27,11 @@ import SelectPledge from './SelectPledge'
 
 export default {
   name: 'SelectionModal',
-  data(){
-    return {
-      selected: -1,
-    }
-  },
   methods: {
     updateActiveVariant(variant) {
-      this.selected = variant
+      this.$store.commit('updateSelectedVariant', {
+        selected: variant
+      })
     },
     finishPledgeAction() {
       this.$emit('openSuccess')
