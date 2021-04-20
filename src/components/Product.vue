@@ -2,6 +2,7 @@
   <div>
       <Variant
         v-for="variant in variants" :key="variant.id"
+        v-show="variant.id != 0"
         :title="variant.title"
         :pledge="variant.pledge"
         :description="variant.description"

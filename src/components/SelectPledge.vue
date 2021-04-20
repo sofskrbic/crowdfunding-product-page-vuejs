@@ -4,7 +4,7 @@
     <input type="radio" name="variant-type" :id="id" :disabled="quantity == 0" :checked="selected == id" :value="id" @change="updateActiveVariant">
       <div class="modal-header">
         <h4>{{title}}</h4>
-        <p class="pledge">{{pledge}}</p>
+        <p class="pledge" v-show="pledge != null">Pledge ${{pledge}} or more</p>
       </div>
     </div>
     <p>{{description}}</p>
@@ -13,7 +13,7 @@
     <hr>
       <p>Enter your pledge</p>
       <div class="pledge-split">
-        <div class="input"><span class="currency">$</span><input type="number" name="pledge" id="pledge"></div>
+        <div class="input"><span class="currency">$</span><input type="number" name="pledge" id="pledge" :min="pledge" :placeholder="pledge" v-model.number="pledgeAmount"></div>
         <button class="btn btn-teal" @click="initializePledge">Continue</button>
       </div>
     </div>
@@ -23,12 +23,21 @@
 <script>
 export default {
   name: 'SelectPledge',
+  data() {
+    return {
+      pledgeAmount: ''
+    }
+  },
   methods: {
     updateActiveVariant() {
       this.$emit('onUpdate', this.id)
     },
     initializePledge() {
       this.$emit('finishPledge', this.id)
+      this.$store.commit('makePledge', {
+        variantId: this.id,
+        pledgeAmount: this.pledgeAmount
+      })
     }
   },
   props: {
@@ -41,8 +50,8 @@ export default {
       required: true
     },
     pledge: {
-      type: String,
-      required: true
+      type: Number,
+      required: false
     },
     description: {
       type: String,

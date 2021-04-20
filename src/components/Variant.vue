@@ -2,7 +2,7 @@
   <div class="container">
     <div class="split">
       <h4>{{title}}</h4>
-      <p class="pledge">{{pledge}}</p>
+      <p class="pledge" v-show="pledge != null">Pledge ${{pledge}} or more</p>
     </div>
     <p>{{description}}</p>
     <p class="quantity" v-show="quantity != null"><span>{{quantity}}</span> left</p>
@@ -22,8 +22,8 @@ export default {
       required: true
     },
     pledge: {
-      type: String,
-      required: true
+      type: Number,
+      required: false
     },
     description: {
       type: String,
