@@ -12,7 +12,6 @@ This is a solution to the [Crowdfunding product page challenge on Frontend Mento
   - [Built with](#built-with)
   - [Continued development](#continued-development)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
 
 ## Overview
