@@ -10,9 +10,7 @@ This is a solution to the [Crowdfunding product page challenge on Frontend Mento
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
@@ -56,12 +54,6 @@ Users should be able to:
 ### Continued development
 
 The next step of the project would possibly be fetching data from an API or including a database into its functionality. Considering it's a small project, state management with Vuex seemed like a reasonable solution.
-
-
-### Useful resources
-
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
 
 
 ## Author
