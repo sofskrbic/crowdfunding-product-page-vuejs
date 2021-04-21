@@ -32,8 +32,8 @@ Users should be able to:
 
 ### Screenshot
 
-![](./dist/Screenshot-desktop.jpg)
-![](./dist/Screenshot-mobile.jpg)
+![](./screenshot-desktop.jpg)
+![](./screenshot-mobile.jpg)
 
 
 ### Links
