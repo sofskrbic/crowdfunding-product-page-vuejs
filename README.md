@@ -36,7 +36,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Frontend Mentor](https://your-solution-url.com)
+- Solution URL: [Frontend Mentor](https://www.frontendmentor.io/challenges/crowdfunding-product-page-7uvcZe7ZR/hub/crowdfunding-product-page-vuejs-xYEAumfQA)
 - Live Site URL: [GitHub Pages](https://sofskrbic.github.io/crowdfunding-product-page-vuejs/)
 
 ## My process
@@ -60,6 +60,6 @@ The next step of the project would possibly be fetching data from an API or incl
 
 - GitHub - [@sofskrbic](https://www.github.com/sofskrbic)
 - Linkedin - [@sofskrbic](https://www.linkedin.com/in/sofijaskrbic/)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/sofskrbic)
+- Frontend Mentor - [@sofskrbic](https://www.frontendmentor.io/profile/sofskrbic)
 - Twitter - [@sofskrbic](https://www.twitter.com/sofskrbic)
 
