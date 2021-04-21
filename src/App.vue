@@ -43,8 +43,14 @@ export default {
       this.overlay = !(this.overlay);
     },
     showSelectionModal() {
+      if (this.selectionModal) {
+        this.$store.commit('updateSelectedVariant', {
+        selected: -1
+      })
+      }
       this.selectionModal = !(this.selectionModal);
       this.activateOverlay()
+      window.scrollTo(0, 0)
     },
     toggleSuccessModal() {
       if (this.selectionModal) {
@@ -53,6 +59,7 @@ export default {
       }
       this.successModal = !(this.successModal)
       this.activateOverlay()
+      window.scrollTo(0, 0)
     }
   }
 }

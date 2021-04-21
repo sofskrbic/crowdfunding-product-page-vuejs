@@ -47,4 +47,11 @@ export default {
     width: 50%;
     margin-inline: auto;
   }
+
+  @media (min-width: 1440px) {
+    .container-modal {
+      width: 35%;
+      padding: 3rem 3.3rem;
+    }
+  }
 </style>

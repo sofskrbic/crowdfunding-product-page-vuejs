@@ -5,11 +5,13 @@
       <p class="pledge" v-show="pledge != null">Pledge ${{pledge}} or more</p>
     </div>
     <p>{{description}}</p>
-    <p class="quantity" v-show="quantity != null"><span>{{quantity}}</span> left</p>
-    <button class="btn btn-teal"
-      :disabled = "quantity == 0"
-      @click="initializePledge"
-    >Select Reward</button>
+    <div class="split action">
+      <p class="quantity" v-show="quantity != null"><span>{{quantity}}</span> left</p>
+      <button class="btn btn-teal"
+        :disabled = "quantity == 0"
+        @click="initializePledge"
+      >Select Reward</button>
+    </div>
   </div>
 </template>
 
@@ -92,5 +94,32 @@ export default {
 
   .btn {
     margin-top: 1.5rem;
+    padding: 1.1rem;
+    width: 75%;
+  }
+
+  @media (min-width: 1440px) {
+    .container {
+      padding: 2rem 2.3rem;
+    }
+
+    .split {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .pledge {
+      padding-top: 0;
+    }
+
+    h4 {
+      padding-bottom: 0rem;
+    }
+
+    .btn {
+      width: unset;
+      padding: 1.1rem 3rem;
+    }
   }
 </style>

@@ -7,7 +7,7 @@
       <button class="btn btn-teal" @click="$emit('showModal')">Back this project</button>
       <button class="btn btn-icon" @click="bookmarkProject">
         <img :src="imgSrc" alt="Bookmark icon" id="bookmark">
-        <span>Bookmark</span>
+        <span id="bookmark-span" :class="{active: this.$store.state.bookmarked}">{{bookmarkStatus}}</span>
       </button>
     </div>
   </div>
@@ -18,7 +18,8 @@ export default {
   name: 'Featured',
   data() {
     return {
-      imgSrc: require('@/assets/icon-bookmark.svg')
+      imgSrc: require('@/assets/icon-bookmark.svg'),
+      bookmarkStatus: 'Bookmark'
     }
   },
   methods: {
@@ -26,8 +27,10 @@ export default {
       this.$store.commit('bookmarked')
       if (this.$store.state.bookmarked) {
         this.imgSrc = require("@/assets/icon-bookmarked.svg")
+        this.bookmarkStatus = 'Bookmarked'
       }else {
         this.imgSrc = require("@/assets/icon-bookmark.svg")
+        this.bookmarkStatus = 'Bookmark'
       }
     }
   }
@@ -60,12 +63,31 @@ export default {
     font-size: var(--fs-h1);
   }
 
-  .btn img::before {
-    content: '';
-  }
-
   .split {
     flex-direction: row;
     justify-content: space-evenly;
+  }
+
+  @media (min-width: 1440px) {
+    .container {
+      width: 50%;
+    }
+
+    .split {
+      justify-content: space-between;
+      padding-inline: 3rem;
+    }
+
+    #bookmark-span {
+      display: flex;
+      padding: 0.5rem 1.5rem 0.5rem 1rem;
+      color: var(--clr-neutral-500);
+      align-items: center;
+      justify-content: center;
+    }
+
+    #bookmark-span.active {
+      color: var(--clr-primary);
+    }
   }
 </style>

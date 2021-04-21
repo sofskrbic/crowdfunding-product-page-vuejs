@@ -84,4 +84,11 @@ export default {
     justify-content: space-between;
     padding-top: 1rem;
   }
+
+  @media (min-width: 1440px) {
+    .container-modal {
+      width: 50%;
+      top: 10rem;
+    }
+  }
 </style>

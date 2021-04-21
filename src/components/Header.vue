@@ -27,7 +27,23 @@ export default {
     openMenu() {
       this.isOpen = !(this.isOpen);
       this.$emit('overlayActive');
+    },
+    handleResize() {
+      if(window.innerWidth >= 1440){
+        this.isOpen = true
+      } else {
+        this.isOpen = false
+      }
     }
+  },
+  created() {
+      window.addEventListener('resize', this.handleResize)
+      if(window.innerWidth >= 1440) {
+        this.isOpen = true
+      }
+  },
+  destroyed() {
+    window.removeEventListener('resize', this.handleResize)
   }
 }
 </script>
@@ -94,5 +110,64 @@ export default {
 
   nav, .logo {
     z-index: 20;
+  }
+
+  @media (min-width:1440px) {
+    /* Hero image with navigation container */
+    .container {
+      background: url(../assets/image-hero-desktop.jpg) no-repeat, linear-gradient(var(--clr-neutral-500), var(--clr-neutral-100));
+      background-size: cover;
+      height: 50vh;
+    }
+
+    .split {
+      padding: 4rem 11rem;
+    }
+
+    #menu-icon, #close-icon {
+      display: none;
+    }
+
+    /* Navigation style */
+    .navigation-links {
+      flex-direction: row;
+      background-color: transparent;
+      justify-content: flex-end;
+      /* padding: 1rem 2.5rem; */
+    }
+
+    .navigation-links li {
+      border-bottom: none;
+    }
+
+    .navigation-links li:nth-child(3) {
+      border-bottom: none;
+    }
+
+    .navigation-links li, .navigation-links li a {
+      padding: 0.8rem 0.3rem;
+      color: var(--clr-neutral-100);
+      font-weight: var(--fw-medium);
+      font-size: var(--fs-body);
+      padding-left: .8rem;
+      padding-block: 1.2rem;
+    }
+
+    .navigation-links.active {
+      top: 3rem;
+      flex-basis: 100%;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .logo {
+      cursor: pointer;
+    }
+
+    nav {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+    }
   }
 </style>

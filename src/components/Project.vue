@@ -60,4 +60,17 @@ export default {
   .split {
     flex-direction: column;
   }
+
+  @media (min-width: 1440px) {
+    .container {
+      width: 50%;
+      padding-top: 2rem;
+      padding-inline: 3rem;
+    }
+
+    p:nth-child(3) {
+      padding-top: 0rem;
+      padding-bottom: 2rem;
+    }
+  }
 </style>

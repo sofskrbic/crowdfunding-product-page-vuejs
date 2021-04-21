@@ -46,8 +46,8 @@ const store = new Vuex.Store({
       let variant = state.variants.find(variant => variant.id === payload.variantId)
       if (variant.quantity != null && variant.quantity > 0) {
         variant.quantity --
+        state.project.backed = state.project.backed + parseInt(payload.pledgeAmount)
       }
-      state.project.backed = state.project.backed + parseInt(payload.pledgeAmount)
       state.project.backers++
       state.selected = -1
     },
@@ -58,8 +58,6 @@ const store = new Vuex.Store({
       state.bookmarked = !(state.bookmarked)
     }
   },
-  actions: {},
-  modules: {},
   getters: {
     getAllVariants() {
       return store.state.variants

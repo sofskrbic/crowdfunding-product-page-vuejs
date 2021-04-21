@@ -97,4 +97,35 @@ export default {
       background-color: var(--clr-primary);
       border-radius: 50px;
     }
+
+    @media (min-width: 1440px) {
+      .container {
+        width: 50%;
+      }
+
+      .split {
+        flex-direction: row;
+        justify-content: flex-start;
+      }
+
+      p {
+        margin-top: 1rem;
+        padding-inline: 3rem;
+        border-right: 2px solid var(--clr-neutral-300);
+        padding-block: 0;
+      }
+
+      p:nth-child(5) {
+        border-right: none;
+      }
+
+      hr {
+        display: none;
+      }
+
+      .progress {
+        margin: 2rem auto 0;
+        width: 90%;
+      }
+    }
 </style>

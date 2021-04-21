@@ -52,4 +52,11 @@ export default {
     cursor: not-allowed;
     opacity: 0.5;
   }
+
+  @media (min-width: 1440px) {
+    div {
+      width: 98%;
+      margin-inline: auto;
+    }
+  }
 </style>

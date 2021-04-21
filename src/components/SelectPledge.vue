@@ -7,13 +7,13 @@
         <p class="pledge" v-show="pledge != null">Pledge ${{pledge}} or more</p>
       </div>
     </div>
-    <p>{{description}}</p>
+    <p class="description">{{description}}</p>
     <p class="quantity" v-show="quantity != null"><span>{{quantity}}</span> left</p>
-    <div class="enter-pledge" v-show="selected == id && quantity > 0">
-    <hr>
-      <p>Enter your pledge</p>
+    <div class="enter-pledge" v-show="selected == id">
+    <hr v-show="quantity > 0">
+      <p v-show="quantity > 0">Enter your pledge</p>
       <div class="pledge-split">
-        <div class="input"><span class="currency">$</span><input type="number" name="pledge" id="pledge" :min="pledge" :placeholder="pledge" v-model.number="pledgeAmount"></div>
+        <div class="input" v-show="quantity > 0"><span class="currency">$</span><input type="number" name="pledge" id="pledge" :min="pledge" :placeholder="pledge" v-model.number="pledgeAmount"></div>
         <button class="btn btn-teal" @click="initializePledge">Continue</button>
       </div>
     </div>
@@ -275,5 +275,69 @@ export default {
 
   .btn {
     padding-inline: 1.5rem;
+  }
+
+  @media (min-width: 1440px) {
+    .modal-header {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      justify-content: space-between;
+      padding-left: 1rem;
+    }
+
+    .modal-header h4:hover {
+      color: var(--clr-primary);
+      cursor: pointer;
+    }
+
+    h4 {
+    padding-bottom: 0rem;
+    padding-right: 2rem;
+    }
+
+    .container {
+      position: relative;
+    }
+
+    .quantity {
+      position: absolute;
+      right: 2rem;
+      top: 1rem;
+    }
+
+    .description {
+      padding-left: 3rem;
+    }
+
+    .enter-pledge {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0rem;
+    margin-top: 2rem;
+    border-top: 2px solid var(--clr-neutral-300);
+    }
+
+    .enter-pledge hr {
+      display: none;
+    }
+
+    .pledge-split {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      margin-top: 1.5rem;
+    }
+
+    .enter-pledge p {
+      margin-bottom: 0rem;
+      margin-top: 1rem;
+    }
+
+    .input {
+    width: 25%;
+  }
   }
 </style>
